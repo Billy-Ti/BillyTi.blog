@@ -1,0 +1,19 @@
+---
+const navBar = [
+  { href: "/about", text: "About" },
+  { href: "/blog", text: "Blog" },
+  { href: "/works", text: "Works" },
+];
+---
+
+<nav>
+  <ul class="flex gap-5">
+    {
+      navBar.map((navBarItem) => (
+        <li>
+          <a href={navBarItem.href}>{navBarItem.text}</a>
+        </li>
+      ))
+    }
+  </ul>
+</nav>
