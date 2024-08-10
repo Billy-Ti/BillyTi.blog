@@ -15,20 +15,65 @@ const { title, centerContent = true, extraBodyClasses = "" } = Astro.props;
       href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
       rel="stylesheet"
     />
+    <link href="/src/styles/global.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/iconoir-icons/iconoir@main/css/iconoir.css"
+    />
   </head>
   <body
-    class={`h-screen overflow-hidden ${centerContent ? "flex items-center justify-center" : ""} ${extraBodyClasses}`}
+    class={`h-screen ${centerContent ? "flex items-center justify-center" : ""} ${extraBodyClasses} bg-[#f9f9f9] dark:bg-gray-900`}
   >
-    <section class="max-w-[1296px] m-auto p-5 relative">
+    <section class="p-5">
       <header
-        class="flex justify-between items-center fixed top-0 left-0 right-0 bg-[#f9f9f9] p-5 shadow-md z-10"
+        class="flex justify-between items-center fixed top-0 left-0 right-0 bg-[#f9f9f9] dark:bg-gray-900 p-5 md:px-12 z-10 backdrop-filter backdrop-blur-sm bg-opacity-30 dark:bg-opacity-30"
       >
         <Title />
-        <Navigation />
+        <div class="flex items-center gap-5">
+          <Navigation />
+        </div>
       </header>
+
       <main>
         <slot />
       </main>
     </section>
+    <script>
+      // 檢查和初始模式保存狀態在 localStorage
+      function setInitialTheme() {
+        const storedTheme = localStorage.getItem("theme");
+        const isDarkMode = storedTheme === "dark";
+        if (isDarkMode) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+        toggleIcons(isDarkMode);
+      }
+
+      // 切換模式
+      function toggleIcons(isDarkMode) {
+        const sunIcon = document.getElementById("theme-icon");
+        const moonIcon = document.getElementById("theme-icon-dark");
+        if (isDarkMode) {
+          sunIcon.classList.remove("hidden");
+          moonIcon.classList.add("hidden");
+        } else {
+          sunIcon.classList.add("hidden");
+          moonIcon.classList.remove("hidden");
+        }
+      }
+
+      // 監聽切換事件
+      const toggleTheme = document.getElementById("theme-toggle");
+      toggleTheme.addEventListener("click", () => {
+        const isDarkMode = document.documentElement.classList.toggle("dark");
+        localStorage.setItem("theme", isDarkMode ? "dark" : "light");
+        toggleIcons(isDarkMode);
+      });
+
+      // 設置初始主題
+      setInitialTheme();
+    </script>
   </body>
 </html>

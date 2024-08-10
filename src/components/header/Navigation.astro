@@ -3,17 +3,131 @@ const navBar = [
   { href: "/about", text: "About" },
   { href: "/blog", text: "Blog" },
   { href: "/works", text: "Works" },
+  { href: "https://github.com/Billy-Ti" },
 ];
 ---
 
 <nav>
-  <ul class="flex gap-5">
+  <ul class="flex gap-5 items-center">
     {
       navBar.map((navBarItem) => (
-        <li>
-          <a href={navBarItem.href}>{navBarItem.text}</a>
+        <li class="text-gray-700 hover:text-black dark:text-[#bbb] hover:dark:text-white duration-150 font-medium text-sm md:text-base">
+          <a
+            href={navBarItem.href}
+            target={
+              navBarItem.href.startsWith("https://github.com")
+                ? "_blank"
+                : "_self"
+            }
+          >
+            {navBarItem.text ? (
+              navBarItem.text
+            ) : (
+              <svg
+                width="18px"
+                height="18px"
+                stroke-width="2"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                class="inline-block text-black dark:text-gray-400 hover:dark:text-white"
+                stroke="currentColor"
+              >
+                <path
+                  d="M16 22.0268V19.1568C16.0375 18.68 15.9731 18.2006 15.811 17.7506C15.6489 17.3006 15.3929 16.8902 15.06 16.5468C18.2 16.1968 21.5 15.0068 21.5 9.54679C21.4997 8.15062 20.9627 6.80799 20 5.79679C20.4558 4.5753 20.4236 3.22514 19.91 2.02679C19.91 2.02679 18.73 1.67679 16 3.50679C13.708 2.88561 11.292 2.88561 8.99999 3.50679C6.26999 1.67679 5.08999 2.02679 5.08999 2.02679C4.57636 3.22514 4.54413 4.5753 4.99999 5.79679C4.03011 6.81549 3.49251 8.17026 3.49999 9.57679C3.49999 14.9968 6.79998 16.1868 9.93998 16.5768C9.61098 16.9168 9.35725 17.3222 9.19529 17.7667C9.03334 18.2112 8.96679 18.6849 8.99999 19.1568V22.0268"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 20.0267C6 20.9999 3.5 20.0267 2 17.0267"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            )}
+          </a>
         </li>
       ))
     }
+    {/* 主题切换图标 */}
+    <li>
+      <button id="theme-toggle" class="text-gray-800 dark:text-gray-200">
+        <svg
+          id="theme-icon"
+          width="18px"
+          height="18px"
+          stroke-width="1.5"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          class="hidden dark:inline-block text-gray-300 hover:dark:text-white duration-150"
+          stroke="currentColor"
+        >
+          <path
+            d="M12 18C15.3137 18 18 15.3137 18 12C18 8.68629 15.3137 6 12 6C8.68629 6 6 8.68629 6 12C6 15.3137 8.68629 18 12 18Z"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M22 12L23 12"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M12 2V1"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M12 23V22"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M20 20L19 19"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M20 4L19 5"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M4 20L5 19"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M4 4L5 5"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+          <path
+            d="M1 12L2 12"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+        <svg
+          id="theme-icon-dark"
+          width="18px"
+          height="18px"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          color="#000000"
+          class="inline-block"
+        >
+          <path
+            d="M3 11.5066C3 16.7497 7.25034 21 12.4934 21C16.2209 21 19.4466 18.8518 21 15.7259C12.4934 15.7259 8.27411 11.5066 8.27411 3C5.14821 4.55344 3 7.77915 3 11.5066Z"
+            stroke="#6B7280"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"></path>
+        </svg>
+      </button>
+    </li>
   </ul>
 </nav>
