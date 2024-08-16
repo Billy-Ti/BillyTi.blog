@@ -5,9 +5,9 @@ module.exports = {
     './public/**/*.html',
   ],
   corePlugins: {
-    preflight: false, // 禁用 Tailwind 的全局樣式重置 (即 preflight)
+    preflight: false,
   },
-  darkMode: 'class', // 啟用基於 class 的暗黑模式
+  darkMode: 'class',
   theme: {
     extend: {
       filter: {
@@ -15,13 +15,23 @@ module.exports = {
       },
       keyframes: {
         flip: {
-          '0%': { transform: 'scaleX(1)' },   // 初始狀態，正常顯示
-          '50%': { transform: 'scaleX(-1)' }, // 鏡像反轉
-          '100%': { transform: 'scaleX(1)' }  // 回到正常顯示
+          '0%': { transform: 'scaleX(1)' },
+          '50%': { transform: 'scaleX(-1)' },
+          '100%': { transform: 'scaleX(1)' }
         },
       },
       animation: {
-        'flip': 'flip 2s ease-in-out infinite', // 鏡像反轉動畫，持續 2 秒，無限循環
+        'flip': 'flip 2s ease-in-out infinite',
+      },
+      // 新增以下設置
+      fontSize: {
+        'clock': '1.5rem',
+      },
+      width: {
+        'clock': '550px',
+      },
+      height: {
+        'clock': '550px',
       },
     },
   },
