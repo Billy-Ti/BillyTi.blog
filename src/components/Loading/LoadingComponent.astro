@@ -1,0 +1,20 @@
+---
+import Loading from "./index.astro";
+---
+
+<div id="loading-component">
+  <Loading />
+</div>
+
+<div id="content" style="display: none;">
+  <slot />
+</div>
+
+<script>
+  function hideLoading() {
+    document.getElementById("loading-component").style.display = "none";
+    document.getElementById("content").style.display = "block";
+  }
+
+  setTimeout(hideLoading, 2000);
+</script>

@@ -1,7 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import LoadingComponent from "../components/Loading/LoadingComponent.astro";
 ---
 
-<Layout title="Home" centerContent={true} extraBodyClasses="pt-24">
-  <div class="pt-24/">圖片置中區</div>
+<Layout title="Home" centerContent={true} extraBodyClasses="overflow-hidden">
+  <LoadingComponent>
+    <img
+      class="w-[500px] h-[500px] object-cover filter dark:invert"
+      src="/images/logo.png"
+      alt="Site Logo"
+    />
+  </LoadingComponent>
 </Layout>
