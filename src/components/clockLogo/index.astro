@@ -4,14 +4,14 @@
 
 <div class="relative w-[520px] h-[520px]">
   <img
-    class="absolute inset-0 w-[500px] h-[500px] m-auto object-cover filter dark:invert"
+    class="absolute inset-0 w-[500px] h-[500px] m-auto object-cover filter dark:invert select-none"
     src="/images/logo.png"
     alt="Site Logo"
   />
   {
     Array.from({ length: 12 }, (_, i) => i + 1).map((hour) => (
       <div
-        class={`absolute w-8 h-8 flex items-center justify-center text-clock font-bold dark:text-white`}
+        class={`absolute w-8 h-8 flex items-center justify-center text-clock font-bold dark:text-white select-none`}
         style={{
           top: `${50 - 35 * Math.cos((hour * Math.PI) / 6)}%`,
           left: `${50 + 35 * Math.sin((hour * Math.PI) / 6)}%`,
