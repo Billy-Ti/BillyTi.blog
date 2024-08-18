@@ -4,9 +4,7 @@ const { frontmatter } = Astro.props;
 ---
 
 <Layout title={frontmatter.title} centerContent={true}>
-  <h1 class="mt-[200px]">{frontmatter.title}</h1>
+  <h1>{frontmatter.title}</h1>
   <p>{frontmatter.date}</p>
   <slot />
 </Layout>
-
-
