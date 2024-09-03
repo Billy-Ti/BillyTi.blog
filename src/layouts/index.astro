@@ -22,11 +22,11 @@ const { title, centerContent = true, extraBodyClasses = "" } = Astro.props;
     />
   </head>
   <body
-    class={`h-screen ${centerContent ? "flex items-center justify-center" : ""} ${extraBodyClasses} bg-[#f9f9f9] p-5 md:px-12 dark:bg-[#393939]`}
+    class={`h-screen ${centerContent ? "flex items-center justify-center" : ""} ${extraBodyClasses} bg-[#f9f9f9] p-5 md:px-12 dark:bg-[#393939] transition-colors duration-300`}
   >
     <section>
       <header
-        class="flex flex-wrap justify-between items-center fixed top-0 left-0 right-0 bg-[#f9f9f9] dark:bg-[#393939] p-5 md:px-12 z-10 backdrop-filter backdrop-blur-sm bg-opacity-30 dark:bg-opacity-30"
+        class="flex flex-wrap justify-between items-center fixed top-0 left-0 right-0 bg-[#f9f9f9] dark:bg-[#393939] p-5 md:px-12 z-10 backdrop-filter backdrop-blur-smbg-opacity-30 dark:bg-opacity-30 transition-colors duration-300"
       >
         <Title />
         <div class="flex items-center gap-5">
